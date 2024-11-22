@@ -1,0 +1,74 @@
+body {
+    margin: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.divContenedor {
+    background-color: #b0dbb2;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    padding: 10px;
+}
+
+ul {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+a {
+    font-size: 20px;
+    display: block;
+    color: black;
+    text-decoration: none;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    background-color: #ffffff;
+
+
+    border-bottom: 4px solid #000000;
+    border-left: 4px solid #000000;
+
+}
+p{
+    font-size: 20px;
+    text-align: left;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 25% auto 25%;
+    
+    width: 100%;
+}
+
+.grid-item {
+    background-color: rgba(255, 255, 255, 0.8);
+
+    padding: 20px;
+    font-size: 20px;
+    text-align: center;
+
+}
+.grid-item:nth-child(2) {
+    margin-top: 80px;
+}
+.divContenedorGrid{
+    display: flex;
+    justify-content: center;
+}
+.imagenesMenuPaciente{
+    width: 400px;
+}
+.imagenCentral{
+    width: 800px;
+    height: 300px;
+}
+h1{
+    font-size: 80px;
+   
+}
+h2{
+    text-align: left;
+}
