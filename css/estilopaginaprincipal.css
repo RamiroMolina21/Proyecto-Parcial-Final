@@ -1,7 +1,8 @@
-body{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
 
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color:#fdfdfb;
+}
 
 .greenbar {
     position: absolute;
@@ -12,8 +13,100 @@ body{
     background-color: #b0dbb2;
 }
 
-.title{
+.title {
     display: flex;
+    justify-content: center;
     text-align: center;
+    margin-top: 70px; 
 }
+
+h1 {
+    font-size: 40px;
+    color: #000;
+}
+
+.content {
+    padding: 20px;  
+}
+
+h2{
+    font-size: 35px;
+}
+
+.welcome {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    margin-left: 500px;
+}
+
+.adentro{
+    margin-top: -100px;
+    width: 100%;
+}
+
+.adentroBtn{
+    padding: 100px;
+    margin-left: 200px;
+    width: 100%;
+}
+
+.btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 300px;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+.welcome-images {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.welcome-images img {
+    object-fit: cover;
+    border: 1px solid #ddd;
+}
+
+p{
+    width: 80%;
+}
+
+.about {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
+    margin-left: 500px;
+}
+
+.about-text {
+    width: 100%;
+}
+
+.about-text h3 {
+    font-size: 30px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+
+.about-image img {
+    object-fit: cover;
+    border: 1px solid #ddd;
+}
+
+
+
 
