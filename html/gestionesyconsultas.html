@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/gestionpacientes.css">
+</head>
+<body>
+    <div class="divContenedor">
+        <ul>
+            <li><a href="../index.html" target="_blank">Volver a Página Principal</a></li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <h1>Agenda una cita</h1>
+        <div class="content">
+            <form class="form">
+                <div class="form-group">
+                    <label for="fechaHora">Fecha y Hora</label>
+                    <input type="datetime-local" id="fechaHora">
+                </div>
+                
+                <div class="form-group">
+                    <label for="citaEstado">Estado cita</label>
+                    <select name="citaEstado" id="estadoCita">
+                        <option value="Activo">Activo</option>
+                        <option value="Inactivo">Inactivo</option>
+                        </select>
+                </div>
+                <div class="form-group">
+                    <label for="medicoespecialidad"> Especialidad Medica</label>
+                    <select name="medicoespecialidad" id="especialidadMedica">
+                        <option value="Cardiología">Cardiología</option>
+                        
+                        </select>
+                </div>
+                <div class="form-group">
+                    <label for="medicoIdentificacion">Identificacion medico</label>
+                    <select name="medicoIdentificacion" id="identificacionMedico">
+                        <option value="1234">1234</option>
+                       
+                        </select>
+                </div>
+                <div class="form-group">
+                    <label for="motivoConsulta">Motivo de consulta</label>
+                    <textarea name="motivoConsulta" id="consultaMotivo"  rows="4" cols="20"></textarea>
+                </div>
+            </form>
+
+            <div>
+                <div class="actions">
+                    <button type="button">GUARDAR</button>
+                    <button type="button">CONSULTAR</button>
+                    <button type="button">NUEVO</button>
+                </div>
+            </div>  
+        </div> 
+    </div>
+
+    <div class="table-container">
+        <table>
+            <tr>
+                <th>Fecha y hora</th>
+                <th>Especialidad medica</th>
+                <th>Motivo de consulta</th>
+                <th>Estado de cita</th>
+                <th>Fecha de Creación</th>
+                <th>Acciones</th>
+            </tr>
+            <tr>
+                <td>2024/11/01- 3:10pm</td>
+                <td>Cardiología</td>
+                <td>dolores en el pecho</td>
+                <td>Activa</td>
+        
+                <td>
+                    <button class="btn btn-edit">Actualizar</button>
+                    <button class="btn btn-delete">Eliminar</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="imagen2">
+        <img src="../recursos/imagenes/imagenmenupaciente1.jpg" alt="" >
+    </div>
+    
+</body>
+</html>

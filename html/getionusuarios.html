@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion de usu</title>
+    <link rel="stylesheet" href="../css/gestionpacientes.css">
+</head>
+<body>
+    <div class="divContenedor">
+        <ul>
+            <li><a href="">Volver a Página Principal</a></li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <h1>Gestión de usuarios</h1>
+        <div class="content">
+            <form class="form">
+                <div class="form-group">
+                    <label for="idPaciente">Nombre de Usuario</label>
+                    <input type="text" id="nombreUsuario" placeholder="Nombre">
+                </div>
+                
+                
+                <div class="form-group">
+                    <label for="estadoDeCuenta">Estado de cuenta</label>
+                    <select name="estadoDeCuenta" id="estadosDeCuenta">
+                        <option value="Activa">Activa</option>
+                        <option value="Inactiva">Inactiva</option>
+                        </select>
+                </div>
+               
+                <div class="form-group">
+                    <label for="rolUsuario">rol del usuario</label>
+                    <input type="text" id="rolUsuario" placeholder="paciente-administrador">
+                </div>
+              
+                <div class="form-group">
+                    <label for="contraseña">Contraseña</label>
+                    <input type="password" id="contraseña" placeholder="********">
+                </div>
+                <div class="form-group">
+                    <label for="confirmar">Confirmar contraseña</label>
+                    <input type="password" id="confirmar" placeholder="********">
+                </div>
+            </form>
+
+            <div>
+                <div class="actions">
+                    <button type="button">GUARDAR</button>
+                    <button type="button">ACTUALIZAR</button>
+                    <button type="button">CONSULTAR</button>
+                    <button type="button">ELIMINAR</button>
+                    <button type="button">NUEVO</button>
+                </div>
+            </div>  
+        </div> 
+    </div>
+
+    <div class="imagen">
+        <img src="../recursos/imagenes/imagenmenupaciente1.jpg" alt="" >
+    </div>
+</body>
+</html>
