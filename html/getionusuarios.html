@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestion de usu</title>
+    <title>Gestión de Usuario</title>
     <link rel="stylesheet" href="../css/gestionpacientes.css">
 </head>
 <body>
     <div class="divContenedor">
         <ul>
-            <li><a href="">Volver a Página Principal</a></li>
+            <li><a href="personalmedico.html">Volver a Página Principal</a></li>
         </ul>
     </div>
 
@@ -22,18 +22,17 @@
                     <input type="text" id="nombreUsuario" placeholder="Nombre">
                 </div>
                 
-                
+                <div class="form-group">
+                    <label for="rolUsuario">Rol del usuario</label>
+                    <input type="text" id="rolUsuario" placeholder="Médico" readonly>
+                </div>
+
                 <div class="form-group">
                     <label for="estadoDeCuenta">Estado de cuenta</label>
                     <select name="estadoDeCuenta" id="estadosDeCuenta">
                         <option value="Activa">Activa</option>
                         <option value="Inactiva">Inactiva</option>
                         </select>
-                </div>
-               
-                <div class="form-group">
-                    <label for="rolUsuario">rol del usuario</label>
-                    <input type="text" id="rolUsuario" placeholder="paciente-administrador">
                 </div>
               
                 <div class="form-group">
@@ -49,17 +48,39 @@
             <div>
                 <div class="actions">
                     <button type="button">GUARDAR</button>
-                    <button type="button">ACTUALIZAR</button>
                     <button type="button">CONSULTAR</button>
-                    <button type="button">ELIMINAR</button>
                     <button type="button">NUEVO</button>
                 </div>
             </div>  
         </div> 
     </div>
 
+    <div class="table-container">
+        <table>
+            <tr>
+                <th>ID Medico</th>
+                <th>Nombre Completo</th>
+                <th>Numero Licencia Profesional</th>
+                <th>Especialidad</th>
+                <th>Telefono</th>
+                <th>Acciones</th>
+            </tr>
+            <tr>
+                <td>1001</td>
+                <td>Ramiro Molina</td>
+                <td>12345</td>
+                <td>Cardiología</td>
+                <td>3108452615</td>
+                <td>
+                    <button class="btn btn-edit">Actualizar</button>
+                    <button class="btn btn-delete">Eliminar</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+
     <div class="imagen">
-        <img src="../recursos/imagenes/imagenmenupaciente1.jpg" alt="" style="height: 300px; margin-top: 150px;">
+        <img src="../recursos/imagenes/imagenmenupaciente1.jpg" alt="" style="height: 300px;">
     </div>
 </body>
 </html>

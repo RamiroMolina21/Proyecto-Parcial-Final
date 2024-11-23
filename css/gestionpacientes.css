@@ -64,14 +64,14 @@ h1 {
 
 .content {
     display: grid;
-    grid-template-columns: 2fr 1fr; /* Dos columnas principales */
+    grid-template-columns: 2fr 1fr; 
     gap: 20px;
     align-items: start;
 }
 
 .form {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Dos columnas para los campos del formulario */
+    grid-template-columns: 1fr 1fr; 
     gap: 20px;
 }
 
@@ -180,23 +180,23 @@ button {
 
 
 .imagen2 {
-    position: absolute; /* Para ubicar la imagen dentro del recuadro específico */
-    top: 10%; /* Ajusta este valor según la posición vertical */
-    right: 10%; /* Ajusta este valor para la posición horizontal */
-    width: 500px; /* Cambia según el tamaño del área */
-    height: 250px; /* Cambia según el tamaño del área */
+    position: absolute; 
+    top: 10%; 
+    right: 10%; 
+    width: 500px; 
+    height: 250px; 
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #f4f4f4; /* Color de fondo opcional */
+    background-color: #f4f4f4; 
     border: 1px solid #ccc;
     border-radius: 8px;
     overflow: hidden;
 }
 
 .imagen2 img {
-    width: 100%; /* La imagen ocupará todo el contenedor */
-    height: 100%; /* La imagen ocupará todo el contenedor */
-    object-fit: cover; /* Asegura que la imagen se ajuste sin deformarse */
-    border-radius: 4px; /* Opcional: redondea los bordes */
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    border-radius: 4px; 
 }
