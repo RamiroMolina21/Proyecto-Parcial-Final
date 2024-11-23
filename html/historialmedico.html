@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/gestionpacientes.css">
+</head>
+
+<body>
+    <div class="divContenedor">
+        <ul>
+            <li><a href="../index.html" target="_blank">Volver a Página Principal</a></li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <h1>Historiales Medico</h1>
+        <div class="content">
+            <form class="form">
+                <div class="form-group">
+                    <label for="usuario">Usuario</label>
+                    <input type="text" id="usuario" placeholder="Medico">
+                </div>
+                <div class="form-group">
+                    <label for="contraseña">Contraseña</label>
+                    <input type="password" id="contraseña" placeholder="********">
+                </div>
+                <div class="form-group">
+                    <label for="confirmar">Confirmar contraseña</label>
+                    <input type="password" id="confirmar" placeholder="********">
+                </div>
+                <div class="form-group">
+                    <label for="fechaConsulta">Fecha de consulta</label>
+                    <input type="date" id="fechaConsulta">
+                </div>
+                <div class="form-group">
+                    <label for="Tratamiento">Tratamiento</label>
+                    <textarea name="Tratamiento" id="tratamiento" rows="4" cols="20"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="Diagnostico">Diagnostico</label>
+                    <textarea name="Diagnostico" id="diagnostico" rows="4" cols="20"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="adcionalesNotas">Notas adicionales</label>
+                    <textarea name="adcionalesNotas" id="notasAdicionales" rows="4" cols="20"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="adjuntarArchivos">Adjuntar Archivos</label>
+                    <input type="file" name="adjuntarArchivos" id="adjuntoArchivos">
+                </div>
+            </form>
+
+            <div>
+                <div class="actions">
+                    <button type="button">GUARDAR</button>
+                    <button type="button">CONSULTAR</button>
+                    <button type="button">ACTUALIZAR</button>
+                    <button type="button">ELIMINAR</button>
+                    <button type="button">NUEVO</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="table-container">
+        <table>
+            <tr>
+                <th>ID historial medico</th>
+                <th>Fecha de consulta</th>
+                <th>Diagnostico</th>
+                <th>Tratamiento</th>
+                <th>Notas adicionales</th>
+                <th>Archivo adjuntado</th>
+                <th>Acciones</th>
+            </tr>
+            <tr>
+                <td>2351</td>
+                <td>2024/11/01</td>
+                <td>posible ataque cardíaco </td>
+                <td>
+                    <ol>
+                        <li>Anticoagulantes</li>
+                        <li>aspirinas</li>
+                    </ol>
+                </td>
+                <td>Regresar quince días después para realizar una revisión de precaución</td>
+                <td><a href="">documento1.pdf</a></td>
+                <td>
+                    <button class="btn btn-edit">Actualizar</button>
+                    <button class="btn btn-delete">Eliminar</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="imagen2">
+        <img src="../recursos/imagenes/imagenmenupaciente1.jpg" alt="">
+    </div>
+</body>
+
+</html>
