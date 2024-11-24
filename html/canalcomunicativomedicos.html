@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/gestionpacientes.css">
+</head>
+<body>
+    <div class="divContenedor">
+        <ul>
+            <li><a href="personalmedico.html" target="_blank">Volver a Página Principal</a></li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <h1>Historiales Medico</h1>
+        <div class="content">
+            <form class="form">
+                <div class="form-group">
+                    <label for="remitente">Remitente</label>
+                    <input type="text" id="remitente" placeholder="Nombre del Remitente">
+                </div>
+                <div class="form-group">
+                    <label for="Destinatario">Destinatario</label>
+                    <select name="Destinatario" id="destinatario" required>
+                        <option value="Medicos">Medicos</option>
+
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="mensajecontenido">Contenido del mensaje</label>
+                    <textarea name="mensajecontenido" id="contenidoMensaje" rows="4" cols="20" required></textarea>
+                </div>
+
+            </form>
+
+            <div>
+                <div class="actions">
+                    <button type="button">ENVIAR</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="table-container">
+        <table>
+            <tr>
+                <th>ID mensaje</th>
+                <th>Remitente </th>
+                <th>Destinatario</th>
+                <th>Fecha y hora del mensaje</th>
+                <th>Contenido del mensaje</th>
+                <th>Estado del mensaje</th>
+                <th>Acciones</th>
+            </tr>
+            <tr>
+                <td>1441</td>
+                <td>Ramiro Molina</td>
+                <td>Jesus Berdugo</td>
+                <td>2024/11/01- 8:26p.m</td>
+                <td>Regresar quince días después para realizar una revisión de precaución</td>
+                <td>No leido</td>
+                <td>
+                    <button class="btn btn-edit">Actualizar</button>
+                    <button class="btn btn-delete">Eliminar</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="imagen2">
+        <img src="../recursos/imagenes/imagenmenupaciente1.jpg" alt="">
+    </div>
+</body>
+</html>
