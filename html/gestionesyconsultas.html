@@ -19,33 +19,33 @@
             <form class="form">
                 <div class="form-group">
                     <label for="fechaHora">Fecha y Hora</label>
-                    <input type="datetime-local" id="fechaHora">
+                    <input type="datetime-local" id="fechaHora" required>
                 </div>
                 
                 <div class="form-group">
                     <label for="citaEstado">Estado cita</label>
-                    <select name="citaEstado" id="estadoCita">
+                    <select name="citaEstado" id="estadoCita" required>
                         <option value="Activo">Activo</option>
                         <option value="Inactivo">Inactivo</option>
                         </select>
                 </div>
                 <div class="form-group">
                     <label for="medicoespecialidad"> Especialidad Medica</label>
-                    <select name="medicoespecialidad" id="especialidadMedica">
+                    <select name="medicoespecialidad" id="especialidadMedica" required>
                         <option value="Cardiología">Cardiología</option>
                         
                         </select>
                 </div>
                 <div class="form-group">
                     <label for="medicoIdentificacion">Identificacion medico</label>
-                    <select name="medicoIdentificacion" id="identificacionMedico">
+                    <select name="medicoIdentificacion" id="identificacionMedico" required>
                         <option value="1234">1234</option>
                        
                         </select>
                 </div>
                 <div class="form-group">
                     <label for="motivoConsulta">Motivo de consulta</label>
-                    <textarea name="motivoConsulta" id="consultaMotivo"  rows="4" cols="20"></textarea>
+                    <textarea name="motivoConsulta" id="consultaMotivo"  rows="4" cols="20" required></textarea>
                 </div>
             </form>
 

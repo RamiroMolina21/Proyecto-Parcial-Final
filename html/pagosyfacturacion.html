@@ -1,13 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pagos y Facturación</title>
     <link rel="stylesheet" href="../css/gestionpacientes.css">
 </head>
+
 <body>
-    
-    
+
+    <div class="divContenedor">
+        <ul>
+            <li><a href="personalmedico.html" target="_blank">Volver a Página Principal</a></li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <h1>Pagos y Facturación</h1>
+        <div class="content">
+            <form class="form">
+                <div class="form-group">
+                    <label for="nombreMedico">Nombre Completo</label>
+                    <input type="text" id="nombreMedico" placeholder="Ramiro Molina Acosta" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="montoPagar">Monto a pagar</label>
+                    <input type="number" name="montoPagar" id="montoPagar" required></input>
+                </div>
+                <div class="form-group">
+                    <label for="metodosPago">Metodo de Pago</label>
+                    <select name="metodosPago" id="metodoPago" required>
+                        <option value="Efectivo">Efectivo</option>
+                        <option value="Tarjeta">Tarjeta</option>
+                        <option value="Transferencia">Transferencia</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="estadosPago">Estado de Pago</label>
+                    <select name="estadosPago" id="estadoPago" required>
+                        <option value="Pendiente">Pendiente</option>
+                        <option value="Pagado">Pagado</option>
+                        <option value="Anulado">Anulado</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="conceptoServicio">Conceto del servicio</label>
+                    <textarea type="text" name="conceptoServicio" id="conceptoServicio" rows="5" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="conceptoServicio">Descuento</label>
+                    <select name="estadosPago" id="estadoPago">
+                        <option value="10">10%</option>
+                        <option value="No aplica">No aplica</option>
+                    </select>
+                </div>
+            </form>
+
+            <div>
+                <div class="actions">
+                    <button type="button">GUARDAR</button>
+                    <button type="button">CONSULTAR</button>
+                    <button type="button">NUEVO</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="table-container">
+        <table>
+            <tr>
+                <th>ID Factura</th>
+                <th>Monto Pagar</th>
+                <th>Fecha Emisión Factura</th>
+                <th>Metodo Pago</th>
+                <th>Estado Pago</th>
+                <th>Concepto Servicio</th>
+                <th>Descuento</th>
+                <th>Fecha Vencimiento Factura</th>
+                <th>Acciones</th>
+            </tr>
+            <tr>
+                <td>1001</td>
+                <td>25.000</td>
+                <td>12/11/2024</td>
+                <td>Cardiología</td>
+                <td>Pagado</td>
+                <td>Cita de control</td>
+                <td>10%</td>
+                <td>15/11/2024</td>
+                <td>
+                    <button class="btn btn-edit">Actualizar</button>
+                    <button class="btn btn-delete">Eliminar</button>
+                </td>
+
+            </tr>
+        </table>
+    </div>
+
+    <div class="imagen2">
+        <img src="../recursos/imagenes/imagenmenupaciente1.jpg" alt="">
+    </div>
 </body>
+
 </html>
