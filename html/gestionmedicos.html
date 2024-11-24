@@ -1,12 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestión Médicos</title>
     <link rel="stylesheet" href="../css/gestionpacientes.css">
+    <script src="../js/gestionmedico.js"></script> 
+    <script src="../js/medico.js"></script>
+    <script src="../js/gestionarsecuencia.js"></script>
+    <script src="../js/secuencia.js"></script>
+    <script src="../js/utilidades.js"></script>
+    
 </head>
 <body>
+
+    <script></script>
 
     <div class="divContenedor">
         <ul>
@@ -25,57 +33,55 @@
               
                 <div class="form-group">
                     <label for="numeroLicenciaMedico">Número Licencia Profesional</label>
-                    <input type="text" name="numeroLicenciaMedico" id="numeroLicenciaMedico" required></input>
+                    <input type="text" name="numeroLicenciaMedico" id="numeroLicenciaMedico" required>
                 </div>
+
                 <div class="form-group">
-                    <label for="Especialidades">Especialidad</label>
-                    <select name="Especialidades" id="especialidadMedica" required>
-                       
-                        </select>
+                    <label for="especialidadMedica">Especialidad</label>
+                    <select id="especialidadMedica" required>
+                        <!-- Aquí se llenará con las especialidades registradas -->
+                    </select>
                 </div>
+
                 <div class="form-group">
-                    <label for="telefonoMedico">Telefono</label>
+                    <label for="telefonoMedico">Teléfono</label>
                     <input type="number" id="telefonoMedico" placeholder="3108452615" required>
                 </div>
             </form>
 
             <div>
                 <div class="actions">
-                    <button type="button">GUARDAR</button>
-                    <button type="button">CONSULTAR</button>
-                    <button type="button">NUEVO</button> 
+                    <button type="button" onclick="guardar()">GUARDAR</button>
+                    <button type="button" onclick="consultar()">CONSULTAR</button>
+                    <button type="button" onclick="limpiarFormulario()">NUEVO</button> 
                 </div>
             </div>  
         </div> 
     </div>
 
     <div class="table-container">
+        <h2>Listado de Médicos</h2>
         <table>
-            <tr>
-                <th>ID Medico</th>
-                <th>Nombre Completo</th>
-                <th>Numero Licencia Profesional</th>
-                <th>Especialidad</th>
-                <th>Telefono</th>
-                <th>Acciones</th>
-            </tr>
-            <tr>
-                <td>1001</td>
-                <td>Ramiro Molina</td>
-                <td>12345</td>
-                <td>Cardiología</td>
-                <td>3108452615</td>
-                <td>
-                    <button class="btn btn-edit">Actualizar</button>
-                    <button class="btn btn-delete">Eliminar</button>
-                </td>
-            </tr>
+            <thead>
+                <tr>
+                    <th>ID Médico</th>
+                    <th>Nombre Completo</th>
+                    <th>Número Licencia Profesional</th>
+                    <th>Especialidad</th>
+                    <th>Teléfono</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="tablaMedicos">
+                <!-- Las filas se agregarán dinámicamente con JavaScript -->
+            </tbody>
         </table>
     </div>
 
     <div class="imagen2">
-        <img src="../recursos/imagenes/imagenmenupaciente1.jpg" alt="" >
+        <img src="../recursos/imagenes/imagenmenupaciente1.jpg" alt="Imagen de menú">
     </div>
+
     
 </body>
 </html>

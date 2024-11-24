@@ -32,3 +32,20 @@ function getValorSecuenciaPaciente() {
     };
 
 }
+
+
+function getValorSecuenciaMedico() {
+    const secuencias = getJSONDeLocalStore(nombreLocalStore);
+
+    if (secuencias.length === 0) {
+        const nuevaSecuencia = new Secuencia();
+        secuencias.push(nuevaSecuencia);
+    }
+
+    secuencias[0].autonumericoMedico += 1;
+    setJSONDeLocalStore(nombreLocalStore, secuencias);
+
+    // Retorna solo el valor del autonumérico para médicos
+    return secuencias[0].autonumericoMedico;
+}
+
