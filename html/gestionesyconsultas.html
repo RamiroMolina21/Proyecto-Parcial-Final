@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Citas y consultas</title>
     <link rel="stylesheet" href="../css/gestionpacientes.css">
+    <script src="../js/citas.js"></script>
+    <script src="../js/gestioncitas.js"></script>
+    <script src="../js/utilidades.js"></script>
+    <script src="../js/secuencia.js"></script>
+    <script src="../js/gestionarsecuencia.js"></script>
+
 </head>
 <body>
     <div class="divContenedor">
@@ -25,21 +31,22 @@
                 <div class="form-group">
                     <label for="citaEstado">Estado cita</label>
                     <select name="citaEstado" id="estadoCita" required>
-                        <option value="Activo">Activo</option>
-                        <option value="Inactivo">Inactivo</option>
+                        <option value="Programada">Programada</option>
+                        <option value="Completada">Completada</option>
+                        <option value="Cancelada">Cancelada</option>
                         </select>
                 </div>
                 <div class="form-group">
                     <label for="medicoespecialidad"> Especialidad Medica</label>
                     <select name="medicoespecialidad" id="especialidadMedica" required>
-                        <option value="Cardiología">Cardiología</option>
+                        
                         
                         </select>
                 </div>
                 <div class="form-group">
                     <label for="medicoIdentificacion">Identificacion medico</label>
                     <select name="medicoIdentificacion" id="identificacionMedico" required>
-                        <option value="1234">1234</option>
+                        
                        
                         </select>
                 </div>
@@ -51,37 +58,33 @@
 
             <div>
                 <div class="actions">
-                    <button type="button">GUARDAR</button>
-                    <button type="button">CONSULTAR</button>
-                    <button type="button">NUEVO</button>
+                    <button onclick="guardar()">GUARDAR</button>
+                    <button onclick="consultar()">CONSULTAR</button>
+                    <button onclick="limpiarFormulario()">NUEVO</button>
                 </div>
             </div>  
         </div> 
     </div>
 
     <div class="table-container">
-        <table>
-            <tr>
-                <th>Fecha y hora</th>
-                <th>Especialidad medica</th>
-                <th>Motivo de consulta</th>
-                <th>Estado de cita</th>
-                <th>Acciones</th>
-            </tr>
-            <tr>
-                <td>2024/11/01- 3:10pm</td>
-                <td>Cardiología</td>
-                <td>dolores en el pecho</td>
-                <td>Activa</td>
-        
-                <td>
-                    <button class="btn btn-edit">Actualizar</button>
-                    <button class="btn btn-delete">Eliminar</button>
-                </td>
-            </tr>
+        <h2>Listado de Citas</h2>
+        <table >
+            <thead>
+                <tr>
+                    <th>ID Cita</th>
+                    <th>Fecha y Hora</th>
+                    <th>Estado Cita</th>
+                    <th>Especialidad Medica</th>
+                    <th>ID Medico</th>
+                    <th>Motivo Consulta</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="tablaCitas">
+                <!-- Las filas se agregarán dinámicamente con JavaScript -->
+            </tbody>  
         </table>
     </div>
-
     <div class="imagen2">
         <img src="../recursos/imagenes/imagenmenupaciente1.jpg" alt="" >
     </div>

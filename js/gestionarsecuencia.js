@@ -49,3 +49,18 @@ function getValorSecuenciaMedico() {
     return secuencias[0].autonumericoMedico;
 }
 
+function getValorSecuenciaCita() {
+    const secuencias = getJSONDeLocalStore(nombreLocalStore);
+
+    if (secuencias.length === 0) {
+        const otraSecuencia = new Secuencia();
+        secuencias.push(otraSecuencia);
+    }
+
+    secuencias[0].autonumericoCita += 1;
+    setJSONDeLocalStore(nombreLocalStore, secuencias);
+
+    // Retorna solo el valor del autonumérico para Cita
+    return secuencias[0].autonumericoCita;
+    
+}
