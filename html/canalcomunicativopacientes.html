@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Canal comunicativo Pacientes</title>
     <link rel="stylesheet" href="../css/gestionpacientes.css">
+    <script src="../js/comunicacion.js"></script>
+    <script src="../js/utilidades.js"></script>
+    <script src="../js/gestioncomunicacion.js"></script>
+    <script src="../js/secuencia.js"></script>
+    <script src="../js/gestionarsecuencia.js"></script>
 </head>
 
 <body>
@@ -21,12 +26,12 @@
             <form class="form">
                 <div class="form-group">
                     <label for="remitente">Remitente</label>
-                    <input type="text" id="remitente" placeholder="Nombre del Remitente">
+                    <input type="text" id="remitente" placeholder="Nombre del Remitente" value="Paciente">
                 </div>
                 <div class="form-group">
                     <label for="Destinatario">Destinatario</label>
                     <select name="Destinatario" id="destinatario" required>
-                        <option value="Medicos">Medicos</option>
+                        <option value="Medico">Medico</option>
 
                     </select>
                 </div>
@@ -40,7 +45,7 @@
 
             <div>
                 <div class="actions">
-                    <button type="button">ENVIAR</button>
+                    <button onclick="guardarMensaje()">ENVIAR</button>
 
                 </div>
             </div>
@@ -48,28 +53,22 @@
     </div>
 
     <div class="table-container">
+        <h2>Listado de Mensajes</h2>
         <table>
-            <tr>
-                <th>ID mensaje</th>
-                <th>Remitente </th>
-                <th>Destinatario</th>
-                <th>Fecha y hora del mensaje</th>
-                <th>Contenido del mensaje</th>
-                <th>Estado del mensaje</th>
-                <th>Acciones</th>
-            </tr>
-            <tr>
-                <td>1441</td>
-                <td>Ramiro Molina</td>
-                <td>Jesus Berdugo</td>
-                <td>2024/11/01- 8:26p.m</td>
-                <td>Regresar quince días después para realizar una revisión de precaución</td>
-                <td>No leido</td>
-                <td>
-                    <button class="btn btn-edit">Actualizar</button>
-                    <button class="btn btn-delete">Eliminar</button>
-                </td>
-            </tr>
+            <thead>
+                <tr>
+                    <th>ID Mensaje</th>
+                    <th>Remitente</th>
+                    <th>Destinatario</th>
+                    <th>Fecha y hora mensaje</th>
+                    <th>Contenido mensaje</th>
+                    <th>Estado mensaje</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="tablaMensajes">
+                <!-- Las filas se agregarán dinámicamente con JavaScript -->
+            </tbody>  
         </table>
     </div>
 
