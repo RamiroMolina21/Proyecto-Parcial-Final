@@ -82,3 +82,20 @@ function getValorSecuenciaHistorialMedico() {
     return secuencias[0].autonumericoHistorialMedico;
     
 }
+
+
+function getValorSecuenciaPago() {
+    const secuencias = getJSONDeLocalStore(nombreLocalStore);
+
+    if (secuencias.length === 0) {
+        const otramassSecuencia = new Secuencia();
+        secuencias.push(otramassSecuencia);
+    }
+
+    secuencias[0].autonumericoFactura += 1;
+    setJSONDeLocalStore(nombreLocalStore, secuencias);
+
+    // Retorna solo el valor del autonumérico para Historial Medico
+    return secuencias[0].autonumericoFactura;
+    
+}

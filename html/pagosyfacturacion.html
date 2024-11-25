@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pagos y Facturación</title>
     <link rel="stylesheet" href="../css/gestionpacientes.css">
+    <script src="../js/pagos.js"></script>
+    <script src="../js/gestionpagos.js"></script>
+    <script src="../js/utilidades.js"></script>
+    <script src="../js/secuencia.js"></script>
+    <script src="../js/gestionarsecuencia.js"></script>
 </head>
 
 <body>
@@ -20,11 +25,6 @@
         <h1>Pagos y Facturación</h1>
         <div class="content">
             <form class="form">
-                <div class="form-group">
-                    <label for="nombreMedico">Nombre Completo</label>
-                    <input type="text" id="nombreMedico" placeholder="Ramiro Molina Acosta" required>
-                </div>
-
                 <div class="form-group">
                     <label for="montoPagar">Monto a pagar</label>
                     <input type="number" name="montoPagar" id="montoPagar" required></input>
@@ -52,57 +52,46 @@
                 </div>
                 <div class="form-group">
                     <label for="conceptoServicio">Descuento</label>
-                    <select name="estadosPago" id="estadoPago">
+                    <select name="estadosPago" id="descuento"> 
                         <option value="10">10%</option>
                         <option value="No aplica">No aplica</option>
                     </select>
                 </div>
             </form>
-
             <div>
                 <div class="actions">
-                    <button type="button">GUARDAR</button>
-                    <button type="button">CONSULTAR</button>
-                    <button type="button">NUEVO</button>
+                    <button onclick="guardar()">GUARDAR</button>
+                    <button onclick="consultar()">CONSULTAR</button>
+                    <button onclick="limpiarFormulario()">NUEVO</button>
                 </div>
             </div>
         </div>
     </div>
 
     <div class="table-container">
+        <h2>Listado de Pagos</h2>
         <table>
-            <tr>
-                <th>ID Factura</th>
-                <th>Monto Pagar</th>
-                <th>Fecha Emisión Factura</th>
-                <th>Metodo Pago</th>
-                <th>Estado Pago</th>
-                <th>Concepto Servicio</th>
-                <th>Descuento</th>
-                <th>Fecha Vencimiento Factura</th>
-                <th>Acciones</th>
-            </tr>
-            <tr>
-                <td>1001</td>
-                <td>25.000</td>
-                <td>12/11/2024</td>
-                <td>Cardiología</td>
-                <td>Pagado</td>
-                <td>Cita de control</td>
-                <td>10%</td>
-                <td>15/11/2024</td>
-                <td>
-                    <button class="btn btn-edit">Actualizar</button>
-                    <button class="btn btn-delete">Eliminar</button>
-                </td>
-
-            </tr>
+            <thead>
+                <tr>
+                    <th>ID Factura</th>
+                    <th>Monto a pagar</th>
+                    <th>Fecha Emision</th>
+                    <th>Metodo de Pago</th>
+                    <th>Estado de Pago</th>
+                    <th>Concepto servicio</th>
+                    <th>Descuento</th>
+                    <th>Fecha Vencimiento Factura</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="tablaPagos">
+                <!-- Las filas se agregarán dinámicamente con JavaScript -->
+            </tbody>
         </table>
     </div>
-
     <div class="imagen2">
         <img src="../recursos/imagenes/imagenmenupaciente1.jpg" alt="">
     </div>
 </body>
 
-</html>
+</html> 
