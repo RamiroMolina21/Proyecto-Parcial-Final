@@ -1,27 +1,28 @@
-var nombreLocalStorePagos = "pagos"; // Asegúrate de que esta variable apunte al localStorage correcto
+var nombreLocalStorePagos = "pagos";
+var idPagoEnEdicion = null; 
 
 // Función para recuperar datos del formulario
 function recuperarDatosFormulario() {
-    var montoPagar = document.getElementById("montoPagar");
+    var montoPagar = document.getElementById("montoPagar").value;
     var fechaEmision = new Date().toISOString().split("T")[0]; // Fecha actual
-    var metodoPago = document.getElementById("metodoPago");
-    var conceptoServicio = document.getElementById("conceptoServicio");
-    var estadoPago = document.getElementById("estadoPago");
-    var descuento = document.getElementById("descuento");  // Campo de descuento
-    
+    var metodoPago = document.getElementById("metodoPago").value;
+    var conceptoServicio = document.getElementById("conceptoServicio").value;
+    var estadoPago = document.getElementById("estadoPago").value;
+    var descuento = document.getElementById("descuento").value;
+
     // Calcular la fecha de vencimiento automáticamente (30 días después de la emisión)
     var fechaVencimiento = new Date();
     fechaVencimiento.setDate(fechaVencimiento.getDate() + 30);
     fechaVencimiento = fechaVencimiento.toISOString().split("T")[0];
 
-    return { 
-        montoPagar: montoPagar.value,
-        fechaEmision: fechaEmision,
-        metodoPago: metodoPago.value,
-        conceptoServicio: conceptoServicio.value,
-        estadoPago: estadoPago.value,
-        descuento: descuento.value,  // Valor del descuento
-        fechaVencimiento: fechaVencimiento
+    return {
+        montoPagar,
+        fechaEmision,
+        metodoPago,
+        conceptoServicio,
+        estadoPago,
+        descuento,
+        fechaVencimiento
     };
 }
 
@@ -31,39 +32,45 @@ function limpiarFormulario() {
     document.getElementById("metodoPago").value = "Efectivo";
     document.getElementById("conceptoServicio").value = "";
     document.getElementById("estadoPago").value = "Pendiente";
-    document.getElementById("descuento").value = "No aplica";  // Descuento
-    document.getElementById("montoPagar").focus();
+    document.getElementById("descuento").value = "No aplica";
+    idPagoEnEdicion = null; // Reiniciar la variable global
 }
-
 // Función para guardar un nuevo pago
 function guardar() {
-    // Recuperar datos del formulario
     var datos = recuperarDatosFormulario();
 
-    // Obtener el ID autogenerado para el pago usando la secuencia
-    var idAutogenerado = getValorSecuenciaPago();
+    // Si hay un ID en edición, actualizamos el registro
+    if (idPagoEnEdicion !== null) {
+        var pagos = getJSONDeLocalStore(nombreLocalStorePagos) || [];
+        var indice = buscarIndicePago(idPagoEnEdicion);
 
-    // Crear un nuevo objeto Pago
-    var pago = new Pagos(
-        idAutogenerado,
-        datos.montoPagar,
-        datos.fechaEmision,
-        datos.metodoPago,
-        datos.conceptoServicio,
-        datos.estadoPago,
-        datos.descuento,  // Descuento
-        datos.fechaVencimiento // Fecha de vencimiento
-    );
+        if (indice > -1) {
+            // Actualizar los datos del pago existente
+            pagos[indice] = {
+                idPago: idPagoEnEdicion,
+                ...datos
+            };
+            setJSONDeLocalStore(nombreLocalStorePagos, pagos);
+            mostrarPagos();
+            alert("El pago ha sido actualizado con éxito!");
+        } else {
+            alert("No se encontró el pago a actualizar.");
+        }
+    } else {
+        // Crear un nuevo pago
+        var idAutogenerado = getValorSecuenciaPago();
+        var nuevoPago = {
+            idPago: idAutogenerado,
+            ...datos
+        };
+        var pagos = getJSONDeLocalStore(nombreLocalStorePagos) || [];
+        pagos.push(nuevoPago);
+        setJSONDeLocalStore(nombreLocalStorePagos, pagos);
+        mostrarPagos();
+        alert("El pago ha sido guardado con éxito con ID: " + idAutogenerado);
+    }
 
-    // Guardar en el localStorage
-    var pagos = getJSONDeLocalStore(nombreLocalStorePagos) || [];
-    pagos.push(pago);
-    setJSONDeLocalStore(nombreLocalStorePagos, pagos);
-
-    // Limpiar formulario, actualizar tabla y mostrar alerta
     limpiarFormulario();
-    mostrarPagos();
-    alert("El pago ha sido guardado con éxito con ID: " + idAutogenerado);
 }
 
 
@@ -170,6 +177,8 @@ function editarPago(id) {
         document.getElementById("conceptoServicio").value = pago.conceptoServicio;
         document.getElementById("estadoPago").value = pago.estadoPago;
         document.getElementById("descuento").value = pago.descuento;
+
+        idPagoEnEdicion = id; // Guardar el ID del pago que estamos editando
         alert("Puedes actualizar los datos y luego hacer clic en GUARDAR.");
     }
 }
