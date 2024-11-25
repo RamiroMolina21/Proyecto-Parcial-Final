@@ -64,3 +64,21 @@ function getValorSecuenciaCita() {
     return secuencias[0].autonumericoCita;
     
 }
+
+
+
+function getValorSecuenciaHistorialMedico() {
+    const secuencias = getJSONDeLocalStore(nombreLocalStore);
+
+    if (secuencias.length === 0) {
+        const otramasSecuencia = new Secuencia();
+        secuencias.push(otramasSecuencia);
+    }
+
+    secuencias[0].autonumericoHistorialMedico += 1;
+    setJSONDeLocalStore(nombreLocalStore, secuencias);
+
+    // Retorna solo el valor del autonumérico para Historial Medico
+    return secuencias[0].autonumericoHistorialMedico;
+    
+}

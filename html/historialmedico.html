@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../css/gestionpacientes.css">
+    <script src="../js/historialesmedicos.js"></script>
+    <script src="../js/gestionhistorial.js"></script>
+    <script src="../js/utilidades.js"></script>
+    <script src="../js/secuencia.js"></script>
+    <script src="../js/gestionarsecuencia.js"></script>
 </head>
 
 <body>
@@ -21,7 +26,7 @@
             <form class="form">
                 <div class="form-group">
                     <label for="usuario">Usuario</label>
-                    <input type="text" id="usuario" placeholder="Medico" readonly>
+                    <input type="text" id="usuario" placeholder="Medico">
                 </div>
                 <div class="form-group">
                     <label for="contraseña">Contraseña</label>
@@ -55,44 +60,31 @@
 
             <div>
                 <div class="actions">
-                    <button type="button">GUARDAR</button>
-                    <button type="button">CONSULTAR</button>
-                    <button type="button">ACTUALIZAR</button>
-                    <button type="button">ELIMINAR</button>
-                    <button type="button">NUEVO</button>
+                    <button onclick="guardar()">GUARDAR</button>
+                    <button onclick="consultar()">CONSULTAR</button>
+                    <button onclick="limpiarFormulario()">NUEVO</button>
                 </div>
             </div>
         </div>
     </div>
 
     <div class="table-container">
-        <table>
-            <tr>
-                <th>ID historial medico</th>
-                <th>Fecha de consulta</th>
-                <th>Diagnostico</th>
-                <th>Tratamiento</th>
-                <th>Notas adicionales</th>
-                <th>Archivo adjuntado</th>
-                <th>Acciones</th>
-            </tr>
-            <tr>
-                <td>2351</td>
-                <td>2024/11/01</td>
-                <td>posible ataque cardíaco </td>
-                <td>
-                    <ol>
-                        <li>Anticoagulantes</li>
-                        <li>aspirinas</li>
-                    </ol>
-                </td>
-                <td>Regresar quince días después para realizar una revisión de precaución</td>
-                <td><a href="">documento1.pdf</a></td>
-                <td>
-                    <button class="btn btn-edit">Actualizar</button>
-                    <button class="btn btn-delete">Eliminar</button>
-                </td>
-            </tr>
+        <h2>Listado de Historiales Medicos</h2>
+        <table >
+            <thead>
+                <tr>
+                    <th>ID Historial</th>
+                    <th>Fecha Consulta</th>
+                    <th>Diagnistico</th>
+                    <th>Tratamiento</th>
+                    <th>Notas Adicionales</th>
+                    <th>Adjutos IMG O PDF</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="tablaHistorial">
+                <!-- Las filas se agregarán dinámicamente con JavaScript -->
+            </tbody>  
         </table>
     </div>
 

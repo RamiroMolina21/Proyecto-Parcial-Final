@@ -29,6 +29,36 @@ function limpiarFormulario() {
     document.getElementById("consultaMotivo").value = "";
 }
 
+function esHorarioValido(fechaHora) {
+    // Convertir la fecha y hora ingresada a un objeto Date
+    const fechaIngresada = new Date(fechaHora);
+
+    // Obtener la fecha y hora actual
+    const ahora = new Date();
+
+    // Validar que la fecha ingresada no sea pasada
+    if (fechaIngresada < ahora) {
+        alert("No se pueden crear citas en fechas u horas pasadas.");
+        return false;
+    }
+
+    // Obtener la hora ingresada
+    const horaIngresada = fechaIngresada.getHours();
+    const minutosIngresados = fechaIngresada.getMinutes();
+
+    // Validar horario de atención: 8:00 AM–12:00 PM y 2:00 PM–6:00 PM
+    const dentroHorarioManana = horaIngresada >= 8 && horaIngresada < 12;
+    const dentroHorarioTarde = horaIngresada >= 14 && horaIngresada < 18;
+
+    if (!(dentroHorarioManana || dentroHorarioTarde)) {
+        alert("El horario de atención es de 8:00 AM a 12:00 PM y de 2:00 PM a 6:00 PM.");
+        return false;
+    }
+
+    return true;
+}
+
+
 // Guardar o actualizar cita
 let idCitaEnEdicion = null; // Variable para almacenar el ID de la cita en edición
 
@@ -36,6 +66,10 @@ function guardar() {
     const { fechaHora, estadoCita, especialidadMedica, identificacionMedico, consultaMotivo } = recuperarDatosFormulario();
 
     if (fechaHora && estadoCita && especialidadMedica && identificacionMedico && consultaMotivo) {
+        if (!esHorarioValido(fechaHora)) {
+            return; // Detener el proceso si la validación falla
+        }
+
         let citas = getJSONDeLocalStore(nombreLocalStoreCitas) || [];
 
         if (idCitaEnEdicion) {
@@ -72,7 +106,6 @@ function guardar() {
         alert("Por favor, complete todos los campos.");
     }
 }
-
 // Consultar cita por ID
 function consultar() {
     const idCita = prompt("Ingrese el ID de la cita que desea consultar:");
