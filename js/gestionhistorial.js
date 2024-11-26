@@ -63,9 +63,6 @@ function limpiarFormulario() {
 }
 
 
-
-
-
 // Función para guardar un historial médico (crear o actualizar)
 function guardar() {
     if (!validarUsuarioYContrasena()) {
@@ -82,7 +79,7 @@ function guardar() {
         if (indice > -1) {
             historiales[indice] = {
                 idHistorialMedico: idHistorialEnEdicion,
-                ...datos,
+                ...datos, // Aquí se actualizan los datos del historial
             };
             alert(`El historial médico con ID ${idHistorialEnEdicion} ha sido actualizado.`);
         } else {
@@ -105,9 +102,8 @@ function guardar() {
     // Limpiar formulario, actualizar tabla y resetear el ID en edición
     limpiarFormulario();
     mostrarHistoriales();
-    idHistorialEnEdicion = null;
+    idHistorialEnEdicion = null;  // Reseteamos el ID de edición después de guardar
 }
-
 
 
 // Función para buscar un índice de historial
@@ -184,6 +180,7 @@ function eliminarHistorial(id) {
 }
 
 // Función para mostrar todos los historiales médicos
+// Función para mostrar todos los historiales médicos
 function mostrarHistoriales() {
     const historiales = getJSONDeLocalStore(nombreLocalStoreHistorial) || [];
     const tabla = document.getElementById("tablaHistorial");
@@ -219,6 +216,7 @@ function mostrarHistoriales() {
         `;
     });
 }
+
 
 // Función para editar un historial médico
 function editarHistorial(id) {
