@@ -1,6 +1,13 @@
 var nombreLocalStoreHistorial = "historialMedico";
 let idHistorialEnEdicion = null; // Variable para el ID del historial en edición
 
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    mostrarHistoriales(); // Mostrar los registros existentes en la tabla
+});  
+
+
 // Función para validar el usuario y contraseña
 function validarUsuarioYContrasena() {
     var usuario = document.getElementById("usuario").value.trim();
@@ -58,6 +65,7 @@ function limpiarFormulario() {
 
 
 
+
 // Función para guardar un historial médico (crear o actualizar)
 function guardar() {
     if (!validarUsuarioYContrasena()) {
@@ -68,7 +76,7 @@ function guardar() {
     const datos = recuperarDatosFormulario();
     let historiales = getJSONDeLocalStore(nombreLocalStoreHistorial) || [];
 
-    if (idHistorialEnEdicion) {
+    if (idHistorialEnEdicion !== null) {
         // Modo edición: actualizar historial existente
         const indice = buscarIndiceHistorial(idHistorialEnEdicion);
         if (indice > -1) {
@@ -211,8 +219,6 @@ function mostrarHistoriales() {
         `;
     });
 }
-
-
 
 // Función para editar un historial médico
 function editarHistorial(id) {

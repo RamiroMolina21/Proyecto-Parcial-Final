@@ -1,6 +1,10 @@
 var nombreLocalStorePagos = "pagos";
 var idPagoEnEdicion = null; 
 
+document.addEventListener("DOMContentLoaded", function() {
+    mostrarPagos(); // Mostrar los registros existentes en la tabla
+}); 
+
 // Función para recuperar datos del formulario
 function recuperarDatosFormulario() {
     var montoPagar = document.getElementById("montoPagar").value;

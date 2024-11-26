@@ -1,6 +1,10 @@
 nombreLocalStore = "especialidades"; // Nombre del localStorage de especialidades
 nombreLocalStoreMedicos = "medicos"; // Nombre del localStorage de médicos
 
+document.addEventListener("DOMContentLoaded", function() {
+    mostrarMedicos(); // Mostrar los registros existentes en la tabla
+}); 
+
 function recuperarDatosFormulario() {
     var nombreMedico = document.getElementById("nombreMedico");
     var numeroLicenciaMedico = document.getElementById("numeroLicenciaMedico");

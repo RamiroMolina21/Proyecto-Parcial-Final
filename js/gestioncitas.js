@@ -2,6 +2,9 @@ nombreLocalStoreCitas = "citas"; // Nombre del localStorage para citas
 nombreLocalStore = "especialidades"; // Nombre del localStorage de especialidades
 nombreLocalStoreMedicos = "medicos"; // Nombre del localStorage de médicos
 
+document.addEventListener("DOMContentLoaded", function() {
+    mostrarCitas(); // Mostrar los registros existentes en la tabla
+}); 
 
 // Recuperar datos del formulario
 function recuperarDatosFormulario() {

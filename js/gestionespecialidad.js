@@ -1,4 +1,9 @@
 var nombreLocalStore = "especialidades";
+var idEspecialidadEditando = null;
+
+document.addEventListener("DOMContentLoaded", function() {
+    mostrarEspecialidades(); // Mostrar los registros existentes en la tabla
+});  
 
 function recuperarDatosFormulario() {
     var nombreEspecialidad = document.getElementById("nombreEspecialidad");
@@ -16,33 +21,54 @@ function limpiarFormulario() {
 }
 
 function guardar() {
-    // Recuperar datos del formulario
     var datos = recuperarDatosFormulario();
 
-    // Obtener el ID autogenerado para especialidades
-    var secuencias = getValorSecuenciaPaciente();
-    var idAutogenerado = secuencias.autonumericoEspecialidad;
+    // Verificar si estamos editando o creando una nueva especialidad
+    if (idEspecialidadEditando !== null) {
+        // Actualizar la especialidad existente
+        var especialidades = getJSONDeLocalStore(nombreLocalStore);
+        var indice = buscarIndiceEspecialidad(idEspecialidadEditando);
 
-    // Crear un nuevo objeto Especialidad
-    var especialidad = new Especialidad(
-        idAutogenerado,
-        datos.nombreEspecialidad.value,
-        datos.descripcionEspecialidad.value,
-        datos.estadoDeEspecialidad.value,
-        datos.fechaCreacion
-    );
+        if (indice > -1) {
+            especialidades[indice].nombreEspecialidad = datos.nombreEspecialidad.value;
+            especialidades[indice].descripcionEspecialidad = datos.descripcionEspecialidad.value;
+            especialidades[indice].estadodeEspecialidad = datos.estadoDeEspecialidad.value;
+            especialidades[indice].fechaCreacion = datos.fechaCreacion;
 
-    // Guardar en el localStorage
-    var especialidades = getJSONDeLocalStore(nombreLocalStore);
-    especialidades.push(especialidad);
-    setJSONDeLocalStore(nombreLocalStore, especialidades);
+            setJSONDeLocalStore(nombreLocalStore, especialidades);
+            mostrarEspecialidades();
+            alert("La especialidad ha sido actualizada con éxito!");
+        } else {
+            alert("No se encontró la especialidad para actualizar.");
+        }
 
-    // Limpiar formulario, actualizar tabla y mostrar alerta
+        // Restablecer la variable de control
+        idEspecialidadEditando = null;
+
+    } else {
+        // Crear una nueva especialidad
+        var secuencias = getValorSecuenciaPaciente();
+        var idAutogenerado = secuencias.autonumericoEspecialidad;
+
+        var especialidad = new Especialidad(
+            idAutogenerado,
+            datos.nombreEspecialidad.value,
+            datos.descripcionEspecialidad.value,
+            datos.estadoDeEspecialidad.value,
+            datos.fechaCreacion
+        );
+
+        var especialidades = getJSONDeLocalStore(nombreLocalStore);
+        especialidades.push(especialidad);
+        setJSONDeLocalStore(nombreLocalStore, especialidades);
+
+        mostrarEspecialidades();
+        alert("La especialidad ha sido guardada con éxito con ID: " + idAutogenerado);
+    }
+
+    // Limpiar el formulario
     limpiarFormulario();
-    mostrarEspecialidades();
-    alert("La especialidad ha sido guardada con éxito con ID: " + idAutogenerado);
 }
-
 function buscarIndiceEspecialidad(id) {
     var especialidades = getJSONDeLocalStore(nombreLocalStore);
     return especialidades.findIndex(e => e.idEspecialidad == id);
@@ -138,6 +164,14 @@ function editarEspecialidad(id) {
         document.getElementById("nombreEspecialidad").value = especialidad.nombreEspecialidad;
         document.getElementById("descripcionEspecialidad").value = especialidad.descripcionEspecialidad;
         document.getElementById("estadodeEspecialidad").value = especialidad.estadodeEspecialidad;
-        alert("Puedes actualizar los datos y luego hacer clic en GUARDAR.");
+
+        // Establecer el modo de edición
+        idEspecialidadEditando = id;
+
+        alert("Puedes actualizar los datos y luego hacer clic en Guardar.");
+    } else {
+        alert("No se encontró la especialidad a editar.");
     }
 }
+
+

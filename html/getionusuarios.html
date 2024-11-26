@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestión de Usuario</title>
     <link rel="stylesheet" href="../css/gestionpacientes.css">
+    <script src="../js/usuarios.js"></script>
+    <script src="../js/gestionusuarios.js"></script>
+    <script src="../js/secuencia.js"></script>
+    <script src="../js/gestionarsecuencia.js"></script>
+    <script src="../js/utilidades.js"></script>
 </head>
 <body>
     <div class="divContenedor">
@@ -47,35 +52,30 @@
 
             <div>
                 <div class="actions">
-                    <button type="button">GUARDAR</button>
-                    <button type="button">CONSULTAR</button>
-                    <button type="button">NUEVO</button>
+                    <button onclick="">GUARDAR</button>
+                    <button onclick="">CONSULTAR</button>
+                    <button onclick="">NUEVO</button>
                 </div>
             </div>  
         </div> 
     </div>
 
     <div class="table-container">
+        <h2>Listado de Usuarios</h2>
         <table>
-            <tr>
-                <th>ID Medico</th>
-                <th>Nombre Completo</th>
-                <th>Numero Licencia Profesional</th>
-                <th>Especialidad</th>
-                <th>Telefono</th>
-                <th>Acciones</th>
-            </tr>
-            <tr>
-                <td>1001</td>
-                <td>Ramiro Molina</td>
-                <td>12345</td>
-                <td>Cardiología</td>
-                <td>3108452615</td>
-                <td>
-                    <button class="btn btn-edit">Actualizar</button>
-                    <button class="btn btn-delete">Eliminar</button>
-                </td>
-            </tr>
+            <thead>
+                <tr>
+                    <th>ID Usuario</th>
+                    <th>Nombre Completo</th>
+                    <th>Número Licencia Profesional</th>
+                    <th>Especialidad</th>
+                    <th>Teléfono</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="tablaMedicos">
+                <!-- Las filas se agregarán dinámicamente con JavaScript -->
+            </tbody>
         </table>
     </div>
 
