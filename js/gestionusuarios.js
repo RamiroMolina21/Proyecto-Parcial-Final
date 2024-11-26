@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (document.querySelector(".table-container")) {
         mostrarUsuarios(); // Mostrar usuarios solo en Gestión de Usuario
     }
-});
+}); 
 
 // Recuperar datos del formulario
 function recuperarDatosFormulario() {
@@ -27,12 +27,22 @@ function limpiarFormulario() {
     document.getElementById("nombreUsuario").focus();
 }
 
+function validarPassword(password) {
+    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>])[A-Za-z\d!@#$%^&*(),.?":{}|<>]{8,}$/;
+    return regex.test(password);
+}
+
 // Guardar usuario en localStorage
 function guardar() {
     var datos = recuperarDatosFormulario();
 
     if (!datos.nombreUsuario.value || !datos.password.value) {
         alert("Todos los campos son obligatorios.");
+        return;
+    }
+
+    if (!validarPassword(datos.password.value)) {
+        alert("La contraseña debe contener al menos una letra mayúscula, una minúscula, un número y un carácter especial.");
         return;
     }
 

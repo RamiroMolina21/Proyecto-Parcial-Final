@@ -108,8 +108,8 @@ function validarUsuarioYContrasena() {
         alert("El usuario debe ser 'paciente'.");
         return false;
     }
-    if (contrasena !== "123") {
-        alert("La contraseña debe ser '123'.");
+    if (contrasena !== "Paciente1*") {
+        alert("La contraseña debe ser 'Paciente1*'.");
         return false;
     }
     if (contrasena !== confirmarContrasena) {

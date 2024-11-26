@@ -13,11 +13,11 @@ function iniciarSesion() {
     var usuario = document.getElementById("usuario")
     var password = document.getElementById("password")
   
-    if (usuario.value == 'paciente' && password.value == '123')  {
+    if (usuario.value == 'paciente' && password.value == 'Paciente1*')  {
   
       window.location.href = '../html/menupaciente.html'
   
-    } else if (usuario.value == 'medico' && password.value == '123')  {
+    } else if (usuario.value == 'medico' && password.value == 'Medico1*')  {
   
        window.location.href = '../html/personalmedico.html'
   
