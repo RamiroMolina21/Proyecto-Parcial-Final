@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrarse</title>
+    <link rel="stylesheet" href="../css/estiloiniciarsesion.css">
+    <script src="../js/usuario.js"></script>
+    <script src="../js/gestionusuarios.js"></script>
+    <script src="../js/utilidades.js"></script>
+    <script src="../js/secuencia.js"></script>
+    <script src="../js/gestionarsecuencia.js"></script>
+</head>
+<body>
+
+    <div class="greenbar"></div>
+    <h1 class="main-title">Hospital Divino Niño</h1>
+    <div class="container">
+        <h2>Registro de Usuario</h2>
+        <p>Ingrese sus datos</p>
+        <form>
+            <div class="form-group">
+                <label for="nombreusuario">Nombre usuario</label>
+                <input type="text" id="nombreusuario" placeholder="Ramiro o Jesus">
+            </div>
+            <div class="form-group">
+                <label for="password">Contraseña</label>
+                <input type="password" id="password" placeholder="****">
+            </div>
+            <div class="form-group">
+                <label for="rolUsuario">Rol Usuario</label>
+                <select id="rolUsuario" required>
+                    <option value="Medico">Medico</option>
+                    <option value="Paciente">Paciente</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="estadoDeCuenta">Estado de Cuenta</label>
+                <select id="estadoDeCuenta" required>
+                    <option value="Activo">Activo</option>
+                    <option value="Inactivo">Inactivo</option>
+                </select>
+            </div>
+            
+        </form>
+        <button onclick="guardar()">Guardar</button><br><br>
+        <button onclick="window.location.href ='../index.html'">Cancelar</button><br><br>
+        <a href="iniciarsesion.html" target="_blank">Click para volver</a>            
+    </div>
+    
+
+
+    
+</body>
+</html>

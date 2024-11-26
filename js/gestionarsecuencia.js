@@ -116,3 +116,21 @@ function getValorSecuenciaMensaje() {
     return secuencias[0].autonumericoMensaje;
     
 }   
+
+
+function getValorSecuenciaUsuario() {
+    const secuencias = getJSONDeLocalStore(nombreLocalStore);
+
+    if (secuencias.length === 0) {
+        const otramassssSecuencia = new Secuencia();
+        secuencias.push(otramassssSecuencia);
+    }
+
+    secuencias[0].autonumericoUsuario += 1;
+    setJSONDeLocalStore(nombreLocalStore, secuencias);
+
+    // Retorna solo el valor del autonumérico para Historial Medico
+    return secuencias[0].autonumericoUsuario;
+    
+}
+

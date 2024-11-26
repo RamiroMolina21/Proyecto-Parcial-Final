@@ -81,3 +81,10 @@ button {
 button:hover {
     background-color: #0056b3;
 }
+
+select{
+    padding: 8px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
